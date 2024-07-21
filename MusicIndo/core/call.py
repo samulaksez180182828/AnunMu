@@ -650,11 +650,21 @@ class Call(PyTgCalls):
             await self.five.start()
 
     async def decorators(self):
-        @self.one.on_update(filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP))
-        @self.two.on_update(filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP))
-        @self.three.on_update(filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP))
-        @self.four.on_update(filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP))
-        @self.five.on_update(filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP))
+        @self.one.on_update(
+            filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP)
+        )
+        @self.two.on_update(
+            filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP)
+        )
+        @self.three.on_update(
+            filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP)
+        )
+        @self.four.on_update(
+            filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP)
+        )
+        @self.five.on_update(
+            filters.chat_update(ChatUpdate.Status.KICKED | ChatUpdate.Status.LEFT_GROUP)
+        )
         async def stream_services_handler(_, chat_id: int):
             await self.stop_stream(chat_id)
 
